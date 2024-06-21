@@ -1,0 +1,14 @@
+{
+  "name": "internship-be",
+  "version": "1.0.0",
+  "description": "Создать REST API для сущности product. Ожидаемые эндпоинты: - POST - /api/product - создание продукта - GET - /api/product/:id - получение информации продукта по id - UPDATE - /api/product/:id - обновление продукта с указанным id - DELETE - /api/product/:id - удаление продукта с указанным id",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
