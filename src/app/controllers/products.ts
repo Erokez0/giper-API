@@ -1,4 +1,4 @@
-import { productService } from 'app/services/products'
+import { productService } from "app/services/products"
 import { Request, Response} from 'express'
 //POST - /api/product - создание продукта
 export async function createProductR(req: any, res: any){ 
