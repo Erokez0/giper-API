@@ -1,7 +1,7 @@
 // import { json } from 'express';
 import products from '../../products.json';
 import { ProductsJson } from '../types/types'
-import { jsonToFile, deleteNullWrite } from 'app/utils/utils';
+import { jsonToFile, deleteNullWrite } from '../utils/utils';
 
 console.log('products loaded successfully');
 

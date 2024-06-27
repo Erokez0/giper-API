@@ -12,17 +12,6 @@
       ]
     },
     {
-      "id": "default3",
-      "name": "Мультиварка НЕTefal",
-      "description": "Описание",
-      "price": 38399,
-      "sale_price": 15899,
-      "image": "idk, multivarka",
-      "status": [
-        "bestseller"
-      ]
-    },
-    {
       "id": "blank",
       "name": "string",
       "description": "string",
