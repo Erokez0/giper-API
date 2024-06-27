@@ -1,14 +1,13 @@
-import express, { Router } from 'express';
-import { getAllProductsR as getAllProducts, deleteProductR as deleteProduct, updateProductR as updateProduct,
-     createProductR as createProduct, getProductR as getProduct } from './controllers/products'
+import express from 'express';
+import { productController } from './controllers/products'
 const app = express();
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
-app.get('/api/product/all', getAllProducts);
-app.get('/api/product/:id', getProduct);
-app.post('/api/product', createProduct);
-app.put('/api/product/:id',updateProduct);
-app.delete('/api/product/:id',deleteProduct);
+app.get('/api/product/all', productController.getAllProducts);
+app.get('/api/product/:id', productController.getProduct);
+app.post('/api/product', productController.createProduct);
+app.put('/api/product/:id', productController.updateProduct);
+app.delete('/api/product/:id', productController.deleteProduct);
 
 export default app
