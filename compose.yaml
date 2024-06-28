@@ -31,8 +31,13 @@ services:
   server:
     build:
       context: .
+      target: develop
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
     environment:
       NODE_ENV: dev
+    command: npm run dev
     ports:
       - "3000:3000"
 
