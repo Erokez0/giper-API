@@ -19,6 +19,17 @@
       "sale_price": 0,
       "image": "string",
       "status": []
+    },
+    {
+      "id": "fe",
+      "name": "Ivan",
+      "description": "Иван федосеев, Фронтедер",
+      "price": 100,
+      "sale_price": 10,
+      "image": "Нет фотки, аноним",
+      "status": [
+        "bestseller"
+      ]
     }
   ]
 }

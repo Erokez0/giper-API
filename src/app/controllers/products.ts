@@ -1,6 +1,6 @@
 import { productService } from '../services/products';
 import { Request, Response} from 'express'
-//POST - /api/product - создание продукта
+
 export const productController = {
      createProduct: (req: Request, res: Response) => {
           try {

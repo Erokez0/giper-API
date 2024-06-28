@@ -31,8 +31,7 @@ export function deleteNullObj(object: object) : object{
             try{
                 json_object[key] = deleteNullObj(json_object[key]);
             }
-        catch{
-                console.log("Не получилась рекурсия")
+            catch{
             }
         }
         if(json_object[key]){
