@@ -2,6 +2,15 @@ import { productService } from '../services/products';
 import { Request, Response} from 'express'
 
 export const productController = {
+     dbtest: (req: Request, res: Response) => {
+          try {
+               const payload = productService.DBtest();
+               res.send(payload);
+          }
+          catch(e) {
+               res.status(500).send({ message: 'Something went wrong' });
+          }
+     },
      createProduct: (req: Request, res: Response) => {
           try {
                const payload = req.body;
@@ -9,7 +18,7 @@ export const productController = {
        
                res.send(result)
           } catch (e) {
-               res.status(500).send({ message: 'Something went wrong' })
+               res.status(500).send({ message: 'Something went wrong' });
           }  
      },
      getProduct: (req: Request, res: Response) => {

@@ -1,10 +1,30 @@
+import { Product } from '../../entity/product';
 import products from '../../products.json';
 import { ProductsJson } from '../types/types'
 import { jsonToFile, deleteNullWrite } from '../utils/utils';
-
+import { myDataSource } from '../data_source/data_source';
 console.log('products loaded successfully');
 
+myDataSource
+    .initialize()
+    .then(() => {
+        console.log("Data Source has been initialized!")
+    })
+    .catch((err) => {
+        console.error("Error during Data Source initialization:", err)
+    })
+
 export const productService = {
+    DBtest: async () => {
+        const product = new Product();
+        product.description = "Описание";
+        product.image = "картинка";
+        product.name = "имя";
+        product.price = 0;
+        product.sale_price = 0;
+        // const product = await myDataSource.getRepository(Product).find();
+        return "product";
+    },
     //Получить продукт по ID
     GetProduct: (product_id: string) => {
         let json_object: ProductsJson = products;
