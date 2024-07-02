@@ -20,6 +20,6 @@ export class Product {
   @Column()
   image: string;
 
-  @Column()
+  @Column( 'text', { array: true})
   status: string[];
 }

@@ -1,6 +1,6 @@
 import { ProductsJson } from '../types/types'
 import { writeFileSync } from 'fs';
-
+import { Product } from 'entity/product';
 //Пишет объект в json файл
 export const jsonToFile = (obj: object, filename: string) => {
     writeFileSync(`${filename}`, JSON.stringify(obj, null, 2))
@@ -44,3 +44,6 @@ export function deleteNullObj(object: object) : object{
 export function deleteNullJson(json: JSON | object) : JSON | any{
     return deleteNullObj(JSON.parse(JSON.stringify(json)))
 }
+
+//Конвертер entity product в productsJSON
+// export function entityToProductsJson(entity: )

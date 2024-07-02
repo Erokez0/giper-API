@@ -27,7 +27,7 @@ services:
     environment:
       POSTGRES_PASSWORD: "giperpass"
       POSTGRES_DB: "giperdb"
-      POSTGRESS_USER: "giperuser"
+      POSTGRES_USER: "giperuser"
   server:
     build:
       context: .
