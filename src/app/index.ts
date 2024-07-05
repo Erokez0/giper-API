@@ -4,7 +4,7 @@ const app = express();
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
-app.get('/', productController.dbtest);
+app.get('/api/product/find/:name', productController.findProducts);
 app.get('/api/product/all', productController.getAllProducts);
 app.get('/api/product/:id', productController.getProduct);
 app.post('/api/product', productController.createProduct);

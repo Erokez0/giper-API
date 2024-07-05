@@ -2,14 +2,19 @@ import { productService } from '../services/products';
 import { Request, Response} from 'express'
 
 export const productController = {
-     dbtest: async (req: Request, res: Response) => {
+     findProducts: async (req: Request, res: Response) => {
           try {
-               const payload = await productService.DBtest();
-               console.log("Ответ сохранённого продукта отправлен в контроллер");
-               res.json(payload);
+               const payload = req.params.name
+               const result = await productService.findProducts(payload);
+               if (result.length > 0){
+                    res.json(result)
+               }
+               else{
+                    res.send({ message: "Товаров не найдено"})
+               }
           }
-          catch(e) {
-               res.status(500).send({ message: 'Something went wrong' });
+          catch (e) {
+               res.status(428).send({message: `Something went wrong ${e}`});
           }
      },
      createProduct: async (req: Request, res: Response) => {
