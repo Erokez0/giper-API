@@ -7,6 +7,7 @@ export type Product = {
     sale_price: number;
     image: string;
     status: string[];
+    quantity: number;
   };
 
 export type ProductsJson = {
@@ -14,3 +15,15 @@ export type ProductsJson = {
 };
 
 export type NoIdProduct = Omit<Product, 'id'>;
+
+export type StockCreate = {
+  "productid": string;
+  "quantity": number;
+};
+export type StockQuantity = Omit<StockCreate, 'productid'>;
+
+export type UserBody = {
+  "id": string;
+  "login": string;
+  "password": string;
+}

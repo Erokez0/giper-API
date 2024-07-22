@@ -1,20 +1,28 @@
 import { productService } from '../services/products';
-import { Request, Response} from 'express'
+import { Request, Response } from 'express';
 
 export const productController = {
      findProducts: async (req: Request, res: Response) => {
           try {
-               const payload = req.params.name
-               const result = await productService.findProducts(payload);
+               const sortBy = req.query.sortBy;
+               const sortDirection = req.query.sortDirection;
+               const description = req.query.description;
+               const status = req.query.status
+               const lessThan = req.query.lessThan;
+               const moreThan = req.query.moreThan;
+               const page = req.query.page;
+               const pageSize = req.query.pageSize
+               const name = req.query.name
+               const result = await productService.findProducts(name, lessThan, moreThan, status, description, sortBy, sortDirection, page, pageSize);
                if (result.length > 0){
                     res.json(result)
                }
                else{
-                    res.send({ message: "Товаров не найдено"})
+                    res.send({ message: "Продуктов не найдено"})
                }
           }
           catch (e) {
-               res.status(428).send({message: `Something went wrong ${e}`});
+               res.status(500).send({message: `Something went wrong ${e}`});
           }
      },
      createProduct: async (req: Request, res: Response) => {
@@ -56,7 +64,11 @@ export const productController = {
      },
      getAllProducts: async (req: Request, res: Response) => {
           try {
-               const result= await productService.getAllProducts();
+               const sortBy = req.query.sortBy;
+               const sortDirection = req.query.sortDirection;
+               const page = req.query.page;
+               const pageSize = req.query.pageSize
+               const result = await productService.getAllProducts(sortBy, sortDirection, page, pageSize);
                res.json(result);
           }
           catch(e) {
