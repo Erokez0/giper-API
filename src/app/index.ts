@@ -2,12 +2,12 @@ import express from 'express';
 import { productController } from './controllers/products'
 import { stockController } from './controllers/stocks';
 import { userController } from './controllers/users';
-import passport from "passport"
-import bodyParser from 'body-parser'
-import * as bearer from  "passport-http-bearer"
-const BearerStrategy = require('passport-http-bearer').Strategy;
+import bodyParser from 'body-parser';
+import passport from 'passport';
+import './middleware/passport';
 
 const app = express();
+
 app.use(bodyParser.json());
 app.use(passport.initialize());
 //Пользователи

@@ -1,7 +1,9 @@
 import passport from "passport";
-const BearerStrategy = require('passport-http-bearer').Strategy;
+import * as passportStrategy from "passport-http-bearer"
 import { myDataSource } from "../data_source/data_source";
-import { User } from "entity/users";
+import { User } from "../../entity/users";
+
+const BearerStrategy = passportStrategy.Strategy;
 
 passport.use(new BearerStrategy(
     async function(token: any, done: any) {
