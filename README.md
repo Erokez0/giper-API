@@ -9,6 +9,7 @@ Query
     sortDirection - Порядок сортировки
 
 GET /api/product/:id - Продукт по ID
+
 GET /api/product/find - Поиск продуктов
 Query
     page - Номер страницы
@@ -19,7 +20,8 @@ Query
     moreThan - Цена больше чем
     tag - Тэг
     description - описание
-    name - названиек
+    name - название
+
 POST /api/product - Создать продукт
 Body
 ```json
@@ -67,6 +69,7 @@ Body
 }
 ```
 DELETE /api/stock/:id - Удалить остаток оп ID
+
 GET /api/stock/:id - Получить остаток по ID
 
 # Пользователи
@@ -87,8 +90,11 @@ Body
 }
 ```
 GET /api/user/all - Получить всех пользователей (Без паролей и токенов)
+
 GET /api/me - Получить себя как пользователя
+
 DELETE /api/user/:id - Удалить пользователя по ID
+
 PATCH /api/user/:id - Обновить пользователя по ID
 Body
 ```json
