@@ -80,22 +80,25 @@ export const userService = {
         }
     },
 
-    singIn: async (userBody: UserBody) => {
+    logIn: async (userBody: UserBody) => {
         try {
-            const user = await myDataSource.getRepository(User).findOneBy({
+            const user = await myDataSource.getRepository(User).findOneByOrFail({
                 login: userBody.login});
             if ( user.password === userBody.password) {
                 const plainCredential = `${user.login}:${user.password}:${process.env.secret}`;
                 const bearerToken = Buffer.from(plainCredential).toString('base64');
                 user.token = bearerToken;
-                return { message: "Вход выполнен успешно"};
+                await myDataSource.getRepository(User).update({login: userBody.login}, user);
+                return { status: 200, token: user.token };
             }
             else {
-                return { messsage: "Пользователя с таким логином и паролем не существует"};
+                return { status: 403 };
             }
         }
         catch (e) {
-
+            return { status: 500 }
         }
+    },
+    signOut: async () => {
     }
 }

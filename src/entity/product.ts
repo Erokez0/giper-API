@@ -1,5 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn } from 'typeorm';
 import { Stock } from './stocks';
+import { Tag } from 'app/types/types';
 
 @Entity()
 export class Product {
@@ -22,7 +23,7 @@ export class Product {
   image: string;
 
   @Column("text", { array: true })
-  status: string[];
+  tags: Tag[];
 
   @OneToOne(() => Stock, {cascade: true, nullable: true, onUpdate: 'CASCADE', onDelete: 'SET NULL'})
   @JoinColumn()

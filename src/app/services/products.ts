@@ -17,7 +17,7 @@ myDataSource
 export const productService = {
     //Найти все продукты имеющие в названии запрос
     findProducts: async (name: any = null, lessThan: any = null, moreThan: any = null,
-        status: any = null, description: any = null, sortBy : any = null, 
+        tag: any = null, description: any = null, sortBy : any = null, 
         sortDirection: any = null, page: any = 1, pageSize: any = 0): Promise<any> => {
 
         try {
@@ -56,8 +56,8 @@ export const productService = {
             }
             
             let status_find = null;
-            if (status != null){
-                status_find = ArrayContains([`${status}`]);
+            if (tag != null){
+                status_find = ArrayContains([`${tag}`]);
             }
 
             let sale_price_find = null;
@@ -78,7 +78,7 @@ export const productService = {
                 {where: {name: name_find,
                 sale_price: sale_price_find,
                 description: description_find,
-                status: status_find},
+                tags: status_find},
                 relations: {stock: true},
                 take: pageSize,
                 skip: pageSize*(page-1),
@@ -154,7 +154,7 @@ export const productService = {
                 image: new_product.image,
                 price: new_product.price,
                 sale_price: new_product.sale_price,
-                status: new_product.status,
+                tags: new_product.tags,
                 description: new_product.description,
                 stock: stock
             });
@@ -189,7 +189,7 @@ export const productService = {
                 image: updated_product.image,
                 price: updated_product.price,
                 sale_price: updated_product.sale_price,
-                status: updated_product.status,
+                tags: updated_product.tags,
                 description: updated_product.description,
             })
             const product = myDataSource.getRepository(Product).findOne({where: {id: product_id}})

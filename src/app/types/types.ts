@@ -6,7 +6,7 @@ export type Product = {
     price: number;
     sale_price: number;
     image: string;
-    status: string[];
+    tags: Tag[];
     quantity: number;
   };
 
@@ -27,3 +27,5 @@ export type UserBody = {
   "login": string;
   "password": string;
 }
+
+export type Tag = "bestseller" | "new" | "best" | "on sale" | null

@@ -47,11 +47,11 @@ export const userController = {
         }
     },
 
-    signIn: async (req: Request, res: Response) => {
+    logIn: async (req: Request, res: Response) => {
         try {
             const payload: UserBody = req.body;
-            const result = await userService.singIn(payload);
-            res.send(result);
+            const result = await userService.logIn(payload);
+            res.status(result.status).send(result.token? result.token : null);
         }
         catch (e) {
             res.status(500).send({ message: 'Something went wrong' });
