@@ -2,27 +2,40 @@
 
 # Продукты
 GET /api/product/all - Все продукты
+
 Query
+
     page - Номер страницы
+
     pageSize - Число элементов на странице
+
     sortBy - Относительно чего сортировать
+
     sortDirection - Порядок сортировки
 
 GET /api/product/:id - Продукт по ID
 
 GET /api/product/find - Поиск продуктов
+
 Query
+
     page - Номер страницы
+
     pageSize - Число элементов на странице
+
     sortBy - Относительно чего сортировать
+
     sortDirection - Порядок сортировки
+    
     lessThan - Цена меньше чем
+
     moreThan - Цена больше чем
     tag - Тэг
     description - описание
     name - название
 
 POST /api/product - Создать продукт
+
 Body
 ```json
 {
@@ -37,6 +50,7 @@ Body
 }
 ```
 PATCH /api/product/:id - Обновить продукт по ID
+
 Body
 ```json
 {
@@ -54,6 +68,7 @@ DELETE /api/product/:id - Удалить продукт по ID
 
 # Остатки
 POST /api/stock - Создать остаток
+
 Body
 ```json
 {
@@ -62,6 +77,7 @@ Body
 }
 ```
 PATCH /api/stock/:id - Обновить остаток по ID
+
 Body
 ```json
 {
@@ -74,6 +90,7 @@ GET /api/stock/:id - Получить остаток по ID
 
 # Пользователи
 POST /api/user/signup - Создать нового пользователя
+
 Body
 ```json
 {
@@ -82,6 +99,7 @@ Body
 }
 ```
 POST /api/user/login - Войти в аккаунт
+
 Body
 ```json
 {
@@ -96,6 +114,7 @@ GET /api/me - Получить себя как пользователя
 DELETE /api/user/:id - Удалить пользователя по ID
 
 PATCH /api/user/:id - Обновить пользователя по ID
+
 Body
 ```json
 {
