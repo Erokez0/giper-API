@@ -30,8 +30,11 @@ Query
     lessThan - Цена меньше чем
 
     moreThan - Цена больше чем
+
     tag - Тэг
+
     description - описание
+    
     name - название
 
 POST /api/product - Создать продукт
